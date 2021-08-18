@@ -15,7 +15,7 @@ class FriendsList extends React.Component {
     axiosWithAuth()
       .get('/friends')
       .then(res=> {
-          console.log('friend', this.props)
+          
         this.setState({
           friends: res.data
         })
@@ -36,7 +36,7 @@ class FriendsList extends React.Component {
                   </div>
               ))
           }
-            <NewFriends />
+            <NewFriends getData={this.getData}/>
       </div>)
   }
 }

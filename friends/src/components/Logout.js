@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import axiosWithAuth from './../utils/axiosWithAuth'
 
 const Logout = (props) => {
-    console.log('logout', props)
+    
 
     useEffect(()=> {
         axiosWithAuth()

@@ -4,10 +4,9 @@ import axiosWithAuth from './../utils/axiosWithAuth'
 class NewFriends extends React.Component{
 state={
     friend:{
-    id: Date.now,
-    name: '',
-    age: '',
-    email: ''
+    // name: '',
+    // age: '',
+    // email: ''
     }
 }
 
@@ -26,18 +25,20 @@ handleChange = e => {
       .post('/friends', this.state.friend)
       .then(res=>{
           console.log('submit',res.data)
+          this.props.getData()
       })
   }
     render(){
     return(
         <div>
-            <form>
+            <form style={{marginBottom:'20px'}}>
                 <input 
                 type='text'
                 name='name'
                 value={this.state.friend.name}
                 onChange={this.handleChange}
                 placeholder='Name'
+                style={{marginRight:'10px',padding:'10px'}}
                 />
                 <input 
                 type='number'
@@ -45,6 +46,7 @@ handleChange = e => {
                 value={this.state.friend.age}
                 onChange={this.handleChange}
                 placeholder='Age'
+                style={{marginRight:'10px',padding:'10px'}}
                 />
                 <input 
                 type='email'
@@ -52,8 +54,9 @@ handleChange = e => {
                 value={this.state.friend.email}
                 onChange={this.handleChange}
                 placeholder='Email'
+                style={{marginRight:'10px',padding:'10px'}}
                 />
-                <button onClick={this.handleSubmit}>Add New Friend</button>
+                <button onClick={this.handleSubmit} style={{padding:'10px'}}>Add New Friend</button>
 
             </form>
         </div>

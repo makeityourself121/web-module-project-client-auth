@@ -22,7 +22,7 @@ class Login extends React.Component {
     e.preventDefault(); 
     axios.post('http://localhost:5000/api/login', this.state.credentials)
       .then(res => {
-          console.log(res)
+          
         localStorage.setItem("token", res.data.payload);
         // localStorage.setItem("role", res.data.role);
         // localStorage.setItem("username", res.data.username);
@@ -42,14 +42,18 @@ class Login extends React.Component {
             name="username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
-          />
+            placeholder='Username'
+            style={{padding:'10px'}}
+          /><br/>
           <input
             type="password"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
-          />
-          <button>Log in</button>
+            placeholder='Password'
+            style={{padding:'10px', margin:'10px'}}
+          /><br/>
+          <button style={{padding:'10px'}}>Log in</button>
         </form>
       </div>
     );

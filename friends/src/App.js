@@ -12,23 +12,21 @@ function App() {
   return (
     <Router>
     <div className="App">
-    <ul>
+    <nav>         
+            <Link to="/login" className='login'>Login</Link>
          
-            <Link to="/login">Login</Link>
-          
-         
-            <Link to="/logout">Logout</Link>
-          
+            <Link to="/logout" className='logout'>Logout</Link>
+            
             {/* {localStorage.getItem("token") && <div>
               <Link to="/friends">Friend List</Link>
             </div>
             } */}
-        </ul>
+        </nav>
 
         <Switch>
           <PrivateRoute exact path='/friends' component={FriendsList}/>
-          <PrivateRoute path="/logout" component={Logout} />
-          <Route path="/login" component={Login} />
+         <PrivateRoute path="/logout" component={Logout} />
+        <Route path="/login" component={Login} />
           <Route path="/" component={Login} />
 
         </Switch>
